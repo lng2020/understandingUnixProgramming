@@ -6,7 +6,7 @@
 
 #define SHOWHOST 
 
-int show_info(struct utmp *utbufp);
+void show_info(struct utmp *utbufp);
 
 int main(){
     struct utmp current_record;
@@ -23,17 +23,16 @@ int main(){
     return 0;
 }
 
-int show_info( struct utmp *utbufp)
+void show_info( struct utmp *utbufp)
 {
-    printf("% -8.8s", utbufp->ut_name);
+    printf("% -8.8s", utbufp->ut_user);
     printf(" ");
     printf("% -8.8s", utbufp->ut_line);
     printf(" ");
-    printf("% 10ld", utbufp->ut_time);
+    printf("% 10ld", utbufp->ut_tv.tv_sec);
     printf(" ");
 #ifdef SHOWHOST
     printf("(%s)", utbufp->ut_host);
 #endif 
     printf("\n");
-    return 0;
 }
