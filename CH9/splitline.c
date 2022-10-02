@@ -67,14 +67,15 @@ char** splitline(char* line)
         while( *++cp != '\0' && !(is_delim(*cp)))
             len++;
         args[argnum++ ] = newstr(start, len);
-        return args;
     }
+    args[argnum] = NULL;
+    return args;
 }
 
 char* newstr(char* s, int l)
 {
     char* rv = emalloc(l+1);
-    rv[1] = '\0';
+    rv[l] = '\0';
     strncpy(rv, s, l);
     return rv;
 }

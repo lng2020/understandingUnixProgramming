@@ -25,4 +25,5 @@ int execute(char* argv[])
         if (wait(&child_info) == -1)
             perror("wait");
     }
+    return child_info;
 }
