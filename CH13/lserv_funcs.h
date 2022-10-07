@@ -1,4 +1,5 @@
 #include <netinet/in.h>
+#define RECLAIM_INTERVAL 60
 int setup();
 void free_all_tickets();
 void shut_down();
