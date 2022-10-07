@@ -6,11 +6,10 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <string.h>
+#include "dgram.h"
 
 #define HOSTLEN 256
 #define h_addr h_addr_list[0] /* for backward compatibility */
-
-int make_internet_address();
 
 int make_dgram_server_socket(int portnum)
 {
